@@ -1,11 +1,17 @@
+@font-face{font-family:"Helvetica Local";src:url("Helvetica.ttf") format("truetype");font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:"Helvetica Local";src:url("Helvetica-Bold.ttf") format("truetype");font-style:normal;font-weight:700;font-display:swap}
+@font-face{font-family:"Helvetica Local";src:url("helvetica-light-587ebe5a59211.ttf") format("truetype");font-style:normal;font-weight:300;font-display:swap}
+@font-face{font-family:"Helvetica Local";src:url("Helvetica-Oblique.ttf") format("truetype");font-style:italic;font-weight:400;font-display:swap}
+@font-face{font-family:"Helvetica Local";src:url("Helvetica-BoldOblique.ttf") format("truetype");font-style:italic;font-weight:700;font-display:swap}
+
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:100%;height:100%}
-body{background:#fff;color:#000;font-family:"Inter",Arial,Helvetica,sans-serif;overflow:hidden}
+body{background:#fff;color:#000;font-family:"Helvetica Local",Helvetica,Arial,sans-serif;font-weight:400;overflow:hidden}
 main{position:relative;width:100vw;height:100vh;overflow:hidden}
 .hero{position:relative;width:100%;height:100%;overflow:hidden}
 
 .background-type{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;z-index:1;pointer-events:none;user-select:none}
-.type-line{position:absolute;display:flex;align-items:center;width:max-content;white-space:nowrap;font-size:clamp(80px,12vw,210px);font-weight:900;line-height:.8;letter-spacing:-.085em;opacity:.075;will-change:transform}
+.type-line{position:absolute;display:flex;align-items:center;width:max-content;white-space:nowrap;font-size:clamp(80px,12vw,210px);font-weight:700;line-height:.8;letter-spacing:-.085em;opacity:.075;will-change:transform}
 .type-line span{margin-right:5vw}
 .line-1{top:4%;left:-30%;animation:moveRight1 45s linear infinite}
 .line-2{top:24%;left:-80%;animation:moveRight2 65s linear infinite}
@@ -22,8 +28,8 @@ main{position:relative;width:100vw;height:100vh;overflow:hidden}
 .hero-content{position:absolute;left:7vw;top:9vh;width:min(650px,48vw);z-index:10;animation:contentReveal 900ms cubic-bezier(.22,1,.36,1) both}
 .eyebrow{display:flex;gap:9px;margin-bottom:34px;font-size:11px;font-weight:700;letter-spacing:.13em;line-height:1}
 .eyebrow span{opacity:.35}
-h1{font-size:clamp(55px,7.2vw,112px);font-weight:900;line-height:.86;letter-spacing:-.075em}
-h2{margin-top:38px;font-size:clamp(19px,2vw,29px);font-weight:500;line-height:1.05;letter-spacing:-.045em}
+h1{font-size:clamp(55px,7.2vw,112px);font-weight:700;line-height:.86;letter-spacing:-.075em}
+h2{margin-top:38px;font-size:clamp(19px,2vw,29px);font-weight:400;line-height:1.05;letter-spacing:-.045em}
 .intro{max-width:455px;margin-top:28px;font-size:14px;line-height:1.5;letter-spacing:-.01em}
 
 .portfolio-button{position:relative;display:inline-flex;align-items:center;justify-content:space-between;gap:30px;min-width:190px;margin-top:32px;padding:15px 17px;background:#000;color:#fff;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.08em;overflow:hidden;transition:transform 250ms ease,color 250ms ease}
