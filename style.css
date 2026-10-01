@@ -6,9 +6,9 @@
 
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:100%;height:100%}
-body{background:#fff;color:#000;font-family:"Helvetica Local",Helvetica,Arial,sans-serif;font-weight:400;overflow:hidden}
-main{position:relative;width:100vw;height:100vh;overflow:hidden}
-.hero{position:relative;width:100%;height:100%;overflow:hidden}
+body{background:#fff;color:#000;font-family:"Helvetica Local",Helvetica,Arial,sans-serif;font-weight:400;overflow-x:hidden;overflow-y:auto}
+main{position:relative;width:100vw;overflow:hidden}
+.hero{position:relative;width:100%;height:100vh;min-height:100svh;overflow:hidden}
 
 /* ---------- animated type background ----------
    Two identical layers: a quiet base layer, and a "spot" copy (made in script.js)
@@ -118,4 +118,28 @@ h2{margin-top:38px;font-size:clamp(19px,2vw,29px);font-weight:400;line-height:1.
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .type-line{animation:none!important}
+}
+
+
+/* ---------- contact section ---------- */
+.contact-section{position:relative;min-height:78vh;padding:13vh 7vw 7vh;background:#fff;color:#000;z-index:30}
+.contact-kicker{font-size:9px;font-weight:700;letter-spacing:.13em;line-height:1;margin-bottom:8vh}
+.contact-layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:8vw;align-items:end}
+.contact-section h2{margin:0;max-width:900px;font-size:clamp(48px,7vw,108px);font-weight:700;line-height:.86;letter-spacing:-.075em}
+.contact-links{display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding-bottom:5px}
+.contact-link{position:relative;display:inline-block;color:#000;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.09em;line-height:1.2;transition:transform 220ms ease,opacity 220ms ease}
+.contact-placeholder{cursor:default;opacity:.7}
+.contact-link:hover{transform:translateX(5px)}
+.contact-meta{display:flex;justify-content:space-between;gap:20px;margin-top:13vh;padding-top:14px;border-top:1px solid rgba(0,0,0,.18);font-size:8px;font-weight:700;letter-spacing:.13em;line-height:1.2}
+@media(max-width:700px){
+  body{overflow-x:hidden;overflow-y:auto}
+  main{width:100%;overflow:visible}
+  .hero{height:100svh;min-height:100svh}
+  .contact-section{min-height:auto;padding:18vh 7vw 8vh}
+  .contact-kicker{margin-bottom:7vh}
+  .contact-layout{display:block}
+  .contact-section h2{font-size:15.5vw;margin-bottom:9vh}
+  .contact-links{gap:18px}
+  .contact-link{font-size:11px}
+  .contact-meta{flex-direction:column;margin-top:12vh}
 }
