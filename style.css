@@ -133,16 +133,16 @@ h2{margin-top:38px;font-size:clamp(19px,2vw,29px);font-weight:400;line-height:1.
 /* ---------- video portrait (applied by portrait-scrub.js once its images load) ---------- */
 @media(min-width:701px){
   .portrait-wrapper.scrub{
-    --h:min(93vh,132vw);                       /* height of the whole figure image */
+    --h:min(74vh,105vw);                       /* fit the complete figure inside the hero */
     width:calc(var(--h)*.3526);right:auto;bottom:auto;
-    left:calc(56vw - var(--h)*.1763);          /* head sits a little right of centre */
-    top:calc(32vh - var(--h)*.092);            /* head at about 32% of the screen height */
+    left:calc(56vw - var(--h)*.1763);
+    top:calc(32vh - var(--h)*.092);
   }
 }
 @media(max-width:700px){
   .portrait-wrapper.scrub{
     --h:48svh;width:calc(var(--h)*.3526);
-    right:2vw;bottom:-6svh;
+    right:2vw;bottom:-1svh;
   }
 }
 
@@ -174,8 +174,8 @@ main{
   width:100%;
   min-height:72vh;
   padding:16vh 7vw 6vh;
-  background:#fff;
-  color:#000;
+  background:#000;
+  color:#fff;
   z-index:5;
   display:flex;
   flex-direction:column;
@@ -209,13 +209,13 @@ main{
   gap:12px;
 }
 .contact-link{
-  color:#000;
+  color:#fff;
   text-decoration:none;
   font-size:13px;
   font-weight:700;
   line-height:1.2;
   letter-spacing:-.01em;
-  border-bottom:1px solid #000;
+  border-bottom:1px solid #fff;
   padding-bottom:3px;
   transition:opacity 180ms ease, transform 180ms ease;
 }
@@ -228,7 +228,7 @@ main{
   justify-content:space-between;
   gap:30px;
   padding-top:28px;
-  border-top:1px solid #000;
+  border-top:1px solid #fff;
   font-size:8px;
   font-weight:700;
   letter-spacing:.13em;
