@@ -256,16 +256,4 @@ main{
     flex-direction:column;
     gap:10px;
   }
-   /* ---------- photo portrait panel ----------
-   Add this block at the VERY END of style.css (after the contact-section styles).
-   It overrides the older ".portrait-wrapper.scrub" rules, so you can leave those in place. */
-@media(min-width:701px){
-  .portrait-wrapper.scrub{--w:min(36vw,66vh);width:var(--w);right:7vw;left:auto;top:auto;bottom:0}   /* --w = panel width */
-}
-@media(min-width:701px) and (max-width:1000px){
-  .portrait-wrapper.scrub{--w:min(40vw,60vh)}
-}
-@media(max-width:700px){
-  .portrait-wrapper.scrub{--w:58vw;width:var(--w);right:0;left:auto;top:auto;bottom:0}
-}
 }
