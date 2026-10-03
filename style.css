@@ -289,3 +289,25 @@ h1,h2{font-weight:700;letter-spacing:-.05em}
   .intro{margin-top:2.25svh}
   .contact{padding-top:9vh;gap:3.5vh}
 }
+
+/* Dedicated mobile headline fallback */
+.mobile-headline{display:none}
+@media(max-width:800px){
+  .hero-content .headline-reveal{display:none !important}
+  .hero-content .mobile-headline{
+    display:block !important;
+    position:relative !important;
+    z-index:20 !important;
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    margin-top:3svh !important;
+    font-size:17vw !important;
+    line-height:.86 !important;
+    letter-spacing:-.055em !important;
+    font-weight:700 !important;
+    color:#d3d3d3 !important;
+    opacity:1 !important;
+    visibility:visible !important;
+  }
+}
