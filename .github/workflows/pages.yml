@@ -30,9 +30,9 @@ jobs:
         run: |
           set -euo pipefail
 
-          # Keep the viewer pinned to a known-good release.
+          # Keep the viewer pinned to a widely compatible known-good release.
           # Updating this version is an intentional maintenance change, not a runtime dependency.
-          PDFJS_VERSION="6.3.289"
+          PDFJS_VERSION="3.11.174"
 
           mkdir -p pdfjs
           npm pack "pdfjs-dist@${PDFJS_VERSION}" --pack-destination "${RUNNER_TEMP}"
