@@ -148,7 +148,7 @@ h1,h2{font-weight:700;letter-spacing:-.05em}
 .contact{
   background:#1a1a1a;
   color:#d3d3d3;
-  border-top-color:#d3d3d3;
+  border-top:0;
 }
 .contact .eyebrow,
 .contact .meta,
