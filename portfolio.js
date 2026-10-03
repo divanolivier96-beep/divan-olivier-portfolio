@@ -1,6 +1,4 @@
-import * as pdfjsLib from "./pdfjs/pdf.mjs";
-
-pdfjsLib.GlobalWorkerOptions.workerSrc="./pdfjs/pdf.worker.mjs";
+pdfjsLib.GlobalWorkerOptions.workerSrc="./pdfjs/pdf.worker.min.js";
 
 const PDF_URL="divan-portfolio.pdf";
 const book=document.getElementById("book");
