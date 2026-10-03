@@ -37,7 +37,7 @@ h1,h2{font-weight:700;letter-spacing:-.05em}
     min-height:0;
     padding:5svh var(--pad) 6svh;
     background:#1a1a1a;
-    color:#d3d3d3;
+    color:#1a1a1a;
   }
   .hero-photo{
     position:relative;
