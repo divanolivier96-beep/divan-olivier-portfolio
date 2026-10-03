@@ -1,4 +1,3 @@
-pdfjsLib.GlobalWorkerOptions.workerSrc="./pdfjs/pdf.worker.min.js";
 
 const PDF_URL="divan-portfolio.pdf";
 const book=document.getElementById("book");
@@ -109,7 +108,7 @@ document.addEventListener("fullscreenchange",()=>{if(!document.fullscreenElement
 
 window.addEventListener("resize",()=>{if(pdf&&!busy)renderSpread()});
 
-pdfjsLib.getDocument(PDF_URL).promise.then(doc=>{
+pdfjsLib.getDocument({url:PDF_URL,disableWorker:true}).promise.then(doc=>{
   pdf=doc;
   renderSpread();
 }).catch(err=>{
