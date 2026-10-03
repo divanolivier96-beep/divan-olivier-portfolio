@@ -9,40 +9,44 @@
   if (!canvas) return;
 
   if (hero && lens && window.matchMedia('(pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const resetHeadlineReveal = () => {
+      if (!hiddenPhrase || !headlineMain) return;
+      hiddenPhrase.style.clipPath = 'circle(0px at 50% 50%)';
+      hiddenPhrase.style.webkitClipPath = 'circle(0px at 50% 50%)';
+      headlineMain.style.maskImage = 'none';
+      headlineMain.style.webkitMaskImage = 'none';
+    };
+
     hero.addEventListener('pointermove', event => {
       lens.style.left = event.clientX + 'px';
       lens.style.top = event.clientY + 'px';
 
-      if (headline && hiddenPhrase) {
+      if (headline && hiddenPhrase && headlineMain) {
         const rect = headline.getBoundingClientRect();
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;
-        const radius = Math.max(55, Math.min(110, rect.width * 0.12));
-        const localX = x;
-        const localY = y;
-        hiddenPhrase.style.clipPath = 'circle(' + radius + 'px at ' + localX + 'px ' + localY + 'px)';
-        hiddenPhrase.style.webkitClipPath = 'circle(' + radius + 'px at ' + localX + 'px ' + localY + 'px)';
-        if (headlineMain) {
-          headlineMain.style.clipPath = 'circle(' + radius + 'px at ' + localX + 'px ' + localY + 'px)';
-          headlineMain.style.webkitClipPath = 'circle(' + radius + 'px at ' + localX + 'px ' + localY + 'px)';
-        }
-        hiddenPhrase.style.webkitClipPath = 'circle(' + radius + 'px at ' + x + 'px ' + y + 'px)';
+        const radius = lens.getBoundingClientRect().width / 2;
+
+        // The alternate phrase exists only inside the same circular reveal
+        // radius as the Difference lens.
+        const circle = 'circle(' + radius + 'px at ' + x + 'px ' + y + 'px)';
+        hiddenPhrase.style.clipPath = circle;
+        hiddenPhrase.style.webkitClipPath = circle;
+
+        // The original phrase is visible everywhere except inside that circle.
+        // The transparent centre lets the alternate phrase underneath show through.
+        const mask = 'radial-gradient(circle at ' + x + 'px ' + y + 'px, transparent 0, transparent ' + radius + 'px, #000 ' + (radius + 1) + 'px)';
+        headlineMain.style.maskImage = mask;
+        headlineMain.style.webkitMaskImage = mask;
       }
     });
+
     hero.addEventListener('pointerenter', event => {
       lens.style.left = event.clientX + 'px';
       lens.style.top = event.clientY + 'px';
     });
-    hero.addEventListener('pointerleave', () => {
-      if (hiddenPhrase) {
-        hiddenPhrase.style.clipPath = 'circle(0px at 50% 50%)';
-        if (headlineMain) {
-          headlineMain.style.clipPath = 'none';
-          headlineMain.style.webkitClipPath = 'none';
-        }
-        hiddenPhrase.style.webkitClipPath = 'circle(0px at 50% 50%)';
-      }
-    });
+
+    hero.addEventListener('pointerleave', resetHeadlineReveal);
   }
   const ctx = canvas.getContext('2d', { alpha: false });
   const photo = new Image();
