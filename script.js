@@ -9,6 +9,7 @@
   if (!canvas) return;
 
   if (hero && lens && window.matchMedia('(pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const portfolioButton = hero.querySelector('.pill');
     const resetHeadlineReveal = () => {
       if (!hiddenPhrase || !headlineMain) return;
       hiddenPhrase.style.clipPath = 'circle(0px at 50% 50%)';
@@ -20,6 +21,13 @@
     hero.addEventListener('pointermove', event => {
       lens.style.left = event.clientX + 'px';
       lens.style.top = event.clientY + 'px';
+
+      const overPortfolioButton = portfolioButton && portfolioButton.matches(':hover');
+      if (overPortfolioButton) {
+        resetHeadlineReveal();
+        lens.style.opacity = '0';
+        return;
+      }
 
       if (headline && hiddenPhrase && headlineMain) {
         const rect = headline.getBoundingClientRect();
@@ -44,7 +52,18 @@
     hero.addEventListener('pointerenter', event => {
       lens.style.left = event.clientX + 'px';
       lens.style.top = event.clientY + 'px';
+      if (portfolioButton && portfolioButton.matches(':hover')) lens.style.opacity = '0';
     });
+
+    if (portfolioButton) {
+      portfolioButton.addEventListener('pointerenter', () => {
+        resetHeadlineReveal();
+        lens.style.opacity = '0';
+      });
+      portfolioButton.addEventListener('pointerleave', () => {
+        lens.style.opacity = '';
+      });
+    }
 
     hero.addEventListener('pointerleave', resetHeadlineReveal);
   }
