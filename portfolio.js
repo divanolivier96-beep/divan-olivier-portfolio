@@ -1,6 +1,6 @@
-import * as pdfjsLib from "https://cdn.jsdelivr.net/npm/pdfjs-dist@6.3.289/build/pdf.min.mjs";
+import * as pdfjsLib from "./pdfjs/pdf.mjs";
 
-pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdn.jsdelivr.net/npm/pdfjs-dist@6.3.289/build/pdf.worker.min.mjs";
+pdfjsLib.GlobalWorkerOptions.workerSrc="./pdfjs/pdf.worker.mjs";
 
 const PDF_URL="divan-portfolio.pdf";
 const book=document.getElementById("book");
@@ -116,6 +116,6 @@ pdfjsLib.getDocument(PDF_URL).promise.then(doc=>{
   renderSpread();
 }).catch(err=>{
   loading.hidden=false;
-  loading.textContent="Unable to load the portfolio PDF.";
+  loading.innerHTML="Unable to load the interactive viewer.<br><a href=\"divan-portfolio.pdf\">Open the PDF directly</a>";
   console.error(err);
 });
