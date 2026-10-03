@@ -35,7 +35,7 @@ h1,h2{font-weight:700;letter-spacing:-.05em}
   .hero-content{
     order:1;
     min-height:0;
-    padding:5svh var(--pad) 6svh;
+    padding:4.5svh var(--pad) 5svh;
     background:#1a1a1a;
     color:#1a1a1a;
   }
@@ -88,8 +88,8 @@ h1,h2{font-weight:700;letter-spacing:-.05em}
   .links{flex-direction:column;align-items:flex-start;gap:10px}
   .meta{flex-direction:column;gap:8px}
   .contact{
-    padding-top:11vh;
-    gap:4vh;
+    padding-top:9vh;
+    gap:3.5vh;
     background:#1a1a1a;
     color:#d3d3d3;
     border-top-color:#d3d3d3;
@@ -251,4 +251,15 @@ h1,h2{font-weight:700;letter-spacing:-.05em}
   .hero .pill{
     cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M3 3L9 25L13 17L21 13L3 3Z' fill='%23ffffff' stroke='%23ffffff' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M13 17L18 23' fill='none' stroke='%231a1a1a' stroke-width='1.5'/%3E%3C/svg%3E") 3 3, auto;
   }
+}
+
+/* Mobile spacing refinement */
+@media(max-width:800px){
+  .hero-content .pill,
+  .hero .pill{
+    margin-top:2.5svh !important;
+  }
+  .hero h2{margin-top:3svh}
+  .intro{margin-top:2.25svh}
+  .contact{padding-top:9vh;gap:3.5vh}
 }
