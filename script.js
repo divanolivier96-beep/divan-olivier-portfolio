@@ -18,8 +18,14 @@
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;
         const radius = Math.max(55, Math.min(110, rect.width * 0.12));
-        if (headlineMain) headlineMain.style.opacity = '0';
-        hiddenPhrase.style.clipPath = 'circle(' + radius + 'px at ' + x + 'px ' + y + 'px)';
+        const localX = x;
+        const localY = y;
+        hiddenPhrase.style.clipPath = 'circle(' + radius + 'px at ' + localX + 'px ' + localY + 'px)';
+        hiddenPhrase.style.webkitClipPath = 'circle(' + radius + 'px at ' + localX + 'px ' + localY + 'px)';
+        if (headlineMain) {
+          headlineMain.style.clipPath = 'circle(' + radius + 'px at ' + localX + 'px ' + localY + 'px)';
+          headlineMain.style.webkitClipPath = 'circle(' + radius + 'px at ' + localX + 'px ' + localY + 'px)';
+        }
         hiddenPhrase.style.webkitClipPath = 'circle(' + radius + 'px at ' + x + 'px ' + y + 'px)';
       }
     });
@@ -30,7 +36,10 @@
     hero.addEventListener('pointerleave', () => {
       if (hiddenPhrase) {
         hiddenPhrase.style.clipPath = 'circle(0px at 50% 50%)';
-        if (headlineMain) headlineMain.style.opacity = '1';
+        if (headlineMain) {
+          headlineMain.style.clipPath = 'none';
+          headlineMain.style.webkitClipPath = 'none';
+        }
         hiddenPhrase.style.webkitClipPath = 'circle(0px at 50% 50%)';
       }
     });
