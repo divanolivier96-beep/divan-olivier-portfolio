@@ -164,3 +164,31 @@ h1,h2{font-weight:700;letter-spacing:-.05em}
   background:#d3d3d3;
   color:#1a1a1a;
 }
+
+
+/* ---------- subtle cursor difference lens ---------- */
+.difference-lens{
+  position:fixed;
+  z-index:3;
+  width:clamp(280px,24vw,460px);
+  height:clamp(280px,24vw,460px);
+  border-radius:50%;
+  pointer-events:none;
+  opacity:0;
+  transform:translate(-50%,-50%) scale(.92);
+  background:rgba(255,255,255,.9);
+  mix-blend-mode:difference;
+  filter:blur(18px);
+  transition:opacity .25s ease,transform .35s ease;
+  will-change:left,top,transform,opacity;
+}
+.hero:hover .difference-lens{
+  opacity:.72;
+  transform:translate(-50%,-50%) scale(1);
+}
+@media(max-width:800px){
+  .difference-lens{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .difference-lens{display:none}
+}
