@@ -58,3 +58,13 @@ h1,h2{font-weight:700;letter-spacing:-.05em}
 .meta{
   letter-spacing:.02em !important;
 }
+
+/* ---------- fixed gap between the intro paragraph and the portfolio button ---------- */
+.hero-content .pill,
+.hero .pill{
+  margin-top:clamp(28px,5.5vh,64px) !important;   /* the space above the button */
+}
+.hero-content .intro,
+.hero .intro{
+  margin-bottom:0 !important;
+}
