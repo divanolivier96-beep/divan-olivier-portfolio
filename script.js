@@ -5,6 +5,7 @@
   const lens = document.querySelector('.difference-lens');
   const headline = document.querySelector('.headline-reveal');
   const hiddenPhrase = document.querySelector('.hidden-phrase');
+  const headlineMain = document.querySelector('.headline-main');
   if (!canvas) return;
 
   if (hero && lens && window.matchMedia('(pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -17,6 +18,7 @@
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;
         const radius = Math.max(55, Math.min(110, rect.width * 0.12));
+        if (headlineMain) headlineMain.style.opacity = '0';
         hiddenPhrase.style.clipPath = 'circle(' + radius + 'px at ' + x + 'px ' + y + 'px)';
         hiddenPhrase.style.webkitClipPath = 'circle(' + radius + 'px at ' + x + 'px ' + y + 'px)';
       }
@@ -28,6 +30,7 @@
     hero.addEventListener('pointerleave', () => {
       if (hiddenPhrase) {
         hiddenPhrase.style.clipPath = 'circle(0px at 50% 50%)';
+        if (headlineMain) headlineMain.style.opacity = '1';
         hiddenPhrase.style.webkitClipPath = 'circle(0px at 50% 50%)';
       }
     });
