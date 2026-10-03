@@ -77,6 +77,10 @@ h1,h2{font-weight:700;letter-spacing:-.05em}
     color:#d3d3d3;
     background:transparent;
   }
+  .hero h1,
+  .hero-content .headline-main{
+    color:#d3d3d3 !important;
+  }
   .hero-content .eyebrow,
   .hero-content .intro{
     color:#d3d3d3 !important;
