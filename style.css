@@ -215,14 +215,24 @@ h1,h2{font-weight:700;letter-spacing:-.05em}
 }
 
 
-/* ---------- hidden headline message ---------- */
-.headline-reveal{position:relative;isolation:isolate}
-.headline-reveal .headline-main{position:relative;z-index:2;transition:opacity .12s ease}
+/* ---------- localized headline reveal ---------- */
+.headline-reveal{
+  position:relative;
+  isolation:isolate;
+}
+.headline-reveal .headline-main{
+  position:relative;
+  z-index:2;
+  display:block;
+  color:#1a1a1a;
+  transition:none;
+}
 .hidden-phrase{
   position:absolute;
   inset:0;
   z-index:1;
-  color:#d3d3d3;
+  display:block;
+  color:#1a1a1a;
   font:inherit;
   line-height:inherit;
   letter-spacing:inherit;
@@ -231,7 +241,10 @@ h1,h2{font-weight:700;letter-spacing:-.05em}
   clip-path:circle(0px at 50% 50%);
   -webkit-clip-path:circle(0px at 50% 50%);
 }
-@media(max-width:800px){.hidden-phrase{display:none}}
+@media(max-width:800px){
+  .hidden-phrase{display:none}
+}
+
 
 /* Portfolio button switches from the brush to the Pen Tool cursor */
 @media (pointer:fine) and (prefers-reduced-motion:no-preference){
