@@ -220,12 +220,13 @@ h1,h2{font-weight:700;letter-spacing:-.05em}
 .hidden-phrase{
   position:absolute;
   inset:0;
-  z-index:-1;
+  z-index:1;
   color:#d3d3d3;
   font:inherit;
   line-height:inherit;
   letter-spacing:inherit;
   pointer-events:none;
+  text-align:left;
   clip-path:circle(0px at 50% 50%);
   -webkit-clip-path:circle(0px at 50% 50%);
 }
