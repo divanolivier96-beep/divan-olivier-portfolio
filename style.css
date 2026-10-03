@@ -27,17 +27,28 @@ h1,h2{font-weight:700;letter-spacing:-.05em}
 
 @media(max-width:800px){
   :root{--pad:7vw}
-  .hero{min-height:100svh}
-  .hero-photo{
-    top:auto;
-    bottom:0;
-    height:38svh;
-    min-height:250px;
-    object-position:66% center;
+  .hero{
+    min-height:0;
+    display:flex;
+    flex-direction:column;
   }
   .hero-content{
-    min-height:100svh;
-    padding:5svh var(--pad) calc(38svh + 4svh);
+    order:1;
+    min-height:0;
+    padding:5svh var(--pad) 6svh;
+  }
+  .hero-photo{
+    position:relative;
+    order:2;
+    inset:auto;
+    width:100%;
+    height:auto;
+    min-height:0;
+    max-height:none;
+    aspect-ratio:4 / 3;
+    object-fit:cover;
+    object-position:66% center;
+    transform:none !important;
   }
   .hero h1{
     font-size:17vw;
