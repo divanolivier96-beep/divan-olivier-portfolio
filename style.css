@@ -315,3 +315,36 @@ h1,h2{font-weight:700;letter-spacing:-.05em}
     margin-top:3svh !important;
   }
 }
+
+
+/* ---------- definitive mobile hero subheading ---------- */
+@media screen and (max-width:800px){
+  .hero-content > .hero-subheading{
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    position:relative !important;
+    z-index:10 !important;
+    flex:0 0 auto !important;
+    width:100% !important;
+    max-width:82vw !important;
+    height:auto !important;
+    min-height:1.2em !important;
+    margin:3svh 0 0 !important;
+    padding:0 !important;
+    overflow:visible !important;
+    font-family:"Helvetica Local",Helvetica,Arial,sans-serif !important;
+    font-size:5.4vw !important;
+    line-height:1.08 !important;
+    font-weight:700 !important;
+    letter-spacing:-.045em !important;
+    color:#d3d3d3 !important;
+    text-indent:0 !important;
+    transform:none !important;
+    clip:auto !important;
+    clip-path:none !important;
+    -webkit-clip-path:none !important;
+    mask:none !important;
+    -webkit-mask:none !important;
+  }
+}
