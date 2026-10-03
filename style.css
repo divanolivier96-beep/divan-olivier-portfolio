@@ -257,47 +257,12 @@ h1,h2{font-weight:700;letter-spacing:-.05em}
   }
 }
 
-/* Mobile headline visibility fix */
+/* ---------- clean mobile headline ---------- */
 @media(max-width:800px){
   .hero-content .headline-reveal{
-    position:relative !important;
-    z-index:10 !important;
-    display:block !important;
-    visibility:visible !important;
-    opacity:1 !important;
-    color:#d3d3d3 !important;
-  }
-  .hero-content .headline-reveal .headline-main{
-    position:relative !important;
-    z-index:11 !important;
-    display:block !important;
-    visibility:visible !important;
-    opacity:1 !important;
-    color:#d3d3d3 !important;
-    -webkit-mask-image:none !important;
-    mask-image:none !important;
-  }
-}
-
-/* Mobile spacing refinement */
-@media(max-width:800px){
-  .hero-content .pill,
-  .hero .pill{
-    margin-top:2.5svh !important;
-  }
-  .hero h2{margin-top:3svh}
-  .intro{margin-top:2.25svh}
-  .contact{padding-top:9vh;gap:3.5vh}
-}
-
-/* Dedicated mobile headline fallback */
-.mobile-headline{display:none}
-@media(max-width:800px){
-  .hero-content .headline-reveal{display:none !important}
-  .hero-content .mobile-headline{
     display:block !important;
     position:relative !important;
-    z-index:20 !important;
+    z-index:2 !important;
     width:100% !important;
     height:auto !important;
     min-height:0 !important;
@@ -307,30 +272,28 @@ h1,h2{font-weight:700;letter-spacing:-.05em}
     letter-spacing:-.055em !important;
     font-weight:700 !important;
     color:#d3d3d3 !important;
-    opacity:1 !important;
     visibility:visible !important;
+    opacity:1 !important;
   }
-}
 
-/* Mobile hero type rebuilt without the hidden desktop headline */
-@media(max-width:800px){
-  .hero-content .headline-reveal,
-  .hero-content .mobile-headline{
+  .hero-content .headline-reveal .headline-main{
+    display:block !important;
+    position:relative !important;
+    z-index:2 !important;
+    color:#d3d3d3 !important;
+    visibility:visible !important;
+    opacity:1 !important;
+  }
+
+  .hero-content .headline-reveal .hidden-phrase{
     display:none !important;
   }
+
   .hero h2{
     margin-top:3svh !important;
-    position:relative;
   }
-  .hero h2::before{
-    content:"Dare\\A to be\\A different.";
-    white-space:pre;
-    display:block;
-    margin:0 0 3.5svh 0;
-    font-size:17vw;
-    line-height:.86;
-    letter-spacing:-.055em;
-    font-weight:700;
-    color:#d3d3d3;
+
+  .hero-content .eyebrow{
+    margin:0 !important;
   }
 }
