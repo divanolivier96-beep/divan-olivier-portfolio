@@ -257,6 +257,28 @@ h1,h2{font-weight:700;letter-spacing:-.05em}
   }
 }
 
+/* Mobile headline visibility fix */
+@media(max-width:800px){
+  .hero-content .headline-reveal{
+    position:relative !important;
+    z-index:10 !important;
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    color:#d3d3d3 !important;
+  }
+  .hero-content .headline-reveal .headline-main{
+    position:relative !important;
+    z-index:11 !important;
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    color:#d3d3d3 !important;
+    -webkit-mask-image:none !important;
+    mask-image:none !important;
+  }
+}
+
 /* Mobile spacing refinement */
 @media(max-width:800px){
   .hero-content .pill,
