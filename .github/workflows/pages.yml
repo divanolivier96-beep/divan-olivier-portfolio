@@ -1,4 +1,5 @@
 name: Deploy portfolio to GitHub Pages
+# Fresh workflow run avoids duplicate artifacts created by rerunning a failed deployment
 
 on:
   push:
