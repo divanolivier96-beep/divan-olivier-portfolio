@@ -38,3 +38,23 @@ h1,h2{font-weight:700;letter-spacing:-.05em}
   .contact h2{font-size:15vw}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ---------- clearer small text ---------- */
+.eyebrow,
+.intro,
+.meta,
+.meta span{
+  font-weight:400 !important;      /* regular weight instead of Light */
+  color:#111 !important;           /* slightly darker for contrast on the grey */
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+.intro{
+  font-size:clamp(15px,1.15vw,23px) !important;
+  line-height:1.5 !important;
+  letter-spacing:0 !important;
+}
+.eyebrow,
+.meta{
+  letter-spacing:.02em !important;
+}
