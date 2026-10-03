@@ -30,19 +30,17 @@ jobs:
         run: |
           set -euo pipefail
 
-          # Keep the viewer pinned to a widely compatible known-good release.
-          # Updating this version is an intentional maintenance change, not a runtime dependency.
           PDFJS_VERSION="3.11.174"
 
           mkdir -p pdfjs
           npm pack "pdfjs-dist@${PDFJS_VERSION}" --pack-destination "${RUNNER_TEMP}"
           tar -xzf "${RUNNER_TEMP}/pdfjs-dist-${PDFJS_VERSION}.tgz" -C "${RUNNER_TEMP}"
 
-          cp "${RUNNER_TEMP}/package/build/pdf.mjs" pdfjs/pdf.mjs
-          cp "${RUNNER_TEMP}/package/build/pdf.worker.mjs" pdfjs/pdf.worker.mjs
+          cp "${RUNNER_TEMP}/package/build/pdf.min.js" pdfjs/pdf.min.js
+          cp "${RUNNER_TEMP}/package/build/pdf.worker.min.js" pdfjs/pdf.worker.min.js
 
-          test -s pdfjs/pdf.mjs
-          test -s pdfjs/pdf.worker.mjs
+          test -s pdfjs/pdf.min.js
+          test -s pdfjs/pdf.worker.min.js
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
