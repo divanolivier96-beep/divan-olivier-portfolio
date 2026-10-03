@@ -43,11 +43,12 @@ h1,h2{font-weight:700;letter-spacing:-.05em}
     position:relative;
     order:2;
     inset:auto;
+    display:block;
     width:100%;
-    height:auto;
+    height:75vw;
     min-height:0;
     max-height:none;
-    aspect-ratio:4 / 3;
+    aspect-ratio:auto;
     object-fit:cover;
     object-position:66% center;
     transform:none !important;
