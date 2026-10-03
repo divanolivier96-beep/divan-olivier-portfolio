@@ -311,3 +311,26 @@ h1,h2{font-weight:700;letter-spacing:-.05em}
     visibility:visible !important;
   }
 }
+
+/* Mobile hero type rebuilt without the hidden desktop headline */
+@media(max-width:800px){
+  .hero-content .headline-reveal,
+  .hero-content .mobile-headline{
+    display:none !important;
+  }
+  .hero h2{
+    margin-top:3svh !important;
+    position:relative;
+  }
+  .hero h2::before{
+    content:"Dare\\A to be\\A different.";
+    white-space:pre;
+    display:block;
+    margin:0 0 3.5svh 0;
+    font-size:17vw;
+    line-height:.86;
+    letter-spacing:-.055em;
+    font-weight:700;
+    color:#d3d3d3;
+  }
+}
