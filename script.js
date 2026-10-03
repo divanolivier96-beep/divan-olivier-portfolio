@@ -1,7 +1,20 @@
 /* render the hero photo through a canvas so browser Content Credentials overlays do not attach to the image element */
 (() => {
   const canvas = document.querySelector('.hero-photo');
+  const hero = document.querySelector('.hero');
+  const lens = document.querySelector('.difference-lens');
   if (!canvas) return;
+
+  if (hero && lens && window.matchMedia('(pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    hero.addEventListener('pointermove', event => {
+      lens.style.left = event.clientX + 'px';
+      lens.style.top = event.clientY + 'px';
+    });
+    hero.addEventListener('pointerenter', event => {
+      lens.style.left = event.clientX + 'px';
+      lens.style.top = event.clientY + 'px';
+    });
+  }
   const ctx = canvas.getContext('2d', { alpha: false });
   const photo = new Image();
 
