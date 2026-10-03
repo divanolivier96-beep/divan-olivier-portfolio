@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Divan Olivier | Portfolio">
+  <title>Divan Olivier | Portfolio</title>
+  <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+  <header class="viewer-header">
+    <a class="back" href="./">← Back</a>
+    <p>DIVAN OLIVIER / PORTFOLIO</p>
+    <button class="fullscreen" type="button" aria-label="Enter fullscreen">Fullscreen</button>
+  </header>
+
+  <main class="viewer" aria-label="Portfolio viewer">
+    <div class="book-shell">
+      <button class="edge edge-left" id="prev" type="button" aria-label="Previous spread">‹</button>
+      <div class="book" id="book" aria-live="polite">
+        <div class="spread" id="spread">
+          <div class="page page-left" id="left-page"></div>
+          <div class="page page-right" id="right-page"></div>
+        </div>
+        <div class="loading" id="loading">Loading portfolio…</div>
+      </div>
+      <button class="edge edge-right" id="next" type="button" aria-label="Next spread">›</button>
+    </div>
+
+    <div class="controls">
+      <button id="prev-bottom" type="button" aria-label="Previous spread">←</button>
+      <span id="counter">1 / —</span>
+      <button id="next-bottom" type="button" aria-label="Next spread">→</button>
+    </div>
+
+    <p class="hint">Use ← →, click the page edges, or swipe</p>
+  </main>
+
+  <footer class="viewer-footer">
+    <span>GRAPHIC DESIGN / PRINT / DIGITAL / MOTION</span>
+    <a href="divan-portfolio.pdf" download>Download PDF</a>
+  </footer>
+
+  <script src="pdfjs/pdf.min.js"></script>\n  <script src="portfolio.js"></script>
+</body>
+</html>

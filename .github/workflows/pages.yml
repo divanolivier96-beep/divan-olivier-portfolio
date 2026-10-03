@@ -26,6 +26,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Prepare self-hosted PDF.js
+        run: |
+          set -euo pipefail
+
+          PDFJS_VERSION="3.11.174"
+
+          mkdir -p pdfjs
+          npm pack "pdfjs-dist@${PDFJS_VERSION}" --pack-destination "${RUNNER_TEMP}"
+          tar -xzf "${RUNNER_TEMP}/pdfjs-dist-${PDFJS_VERSION}.tgz" -C "${RUNNER_TEMP}"
+
+          cp "${RUNNER_TEMP}/package/build/pdf.min.js" pdfjs/pdf.min.js
+          cp "${RUNNER_TEMP}/package/build/pdf.worker.min.js" pdfjs/pdf.worker.min.js
+
+          test -s pdfjs/pdf.min.js
+          test -s pdfjs/pdf.worker.min.js
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
@@ -39,4 +55,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
