@@ -29,36 +29,17 @@
 
   fetch('hero.webp', { cache: 'force-cache' })
     .then(response => response.blob())
-    .then(blob => createImageBitmap(blob))
-    .then(bitmap => {
-      photo.src = URL.createObjectURL(blob);
-      photo.onload = draw;
-      photo.src = URL.createObjectURL(blob);
-      draw();
-      if (bitmap.close) bitmap.close();
+    .then(blob => {
+      const url = URL.createObjectURL(blob);
+      photo.onload = () => {
+        draw();
+        URL.revokeObjectURL(url);
+      };
+      photo.src = url;
     })
     .catch(() => {
       photo.src = 'hero.webp';
       photo.onload = draw;
     });
 
-  addEventListener('resize', draw, { passive: true });
-  new ResizeObserver(draw).observe(canvas);
-})();
-
-/* gentle parallax: the photograph drifts a few pixels against the cursor */
-(() => {
-  const canvas = document.querySelector('.hero-photo');
-  if (!canvas || matchMedia('(prefers-reduced-motion: reduce), (pointer: coarse)').matches) return;
-  let tx = 0, ty = 0, x = 0, y = 0;
-  addEventListener('pointermove', e => {
-    tx = (e.clientX / innerWidth - .5) * -14;
-    ty = (e.clientY / innerHeight - .5) * -10;
-  }, { passive: true });
-  (function tick() {
-    x += (tx - x) * .06;
-    y += (ty - y) * .06;
-    canvas.style.transform = `translate3d(${x.toFixed(2)}px,${y.toFixed(2)}px,0) scale(1.02)`;
-    requestAnimationFrame(tick);
-  })();
 })();
