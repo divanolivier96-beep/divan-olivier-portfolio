@@ -27,15 +27,44 @@ h1,h2{font-weight:700;letter-spacing:-.05em}
 
 @media(max-width:800px){
   :root{--pad:7vw}
-  .hero-photo{object-position:66% bottom;height:41%;top:auto;bottom:0}
-  .hero-content{padding-top:5svh}
-  .hero h1{font-size:19vw;margin-top:3svh}
-  .hero h2{font-size:5.4vw;margin-top:3svh;max-width:70vw}
-  .intro{max-width:82vw;font-size:12px;margin-top:2svh}
-  .hero .pill{margin-top:3svh;margin-bottom:0}
+  .hero{min-height:100svh}
+  .hero-photo{
+    top:auto;
+    bottom:0;
+    height:38svh;
+    min-height:250px;
+    object-position:66% center;
+  }
+  .hero-content{
+    min-height:100svh;
+    padding:5svh var(--pad) calc(38svh + 4svh);
+  }
+  .hero h1{
+    font-size:17vw;
+    line-height:.86;
+    margin-top:3svh;
+  }
+  .hero h2{
+    font-size:5.4vw;
+    line-height:1.08;
+    margin-top:3.5svh;
+    max-width:82vw;
+  }
+  .intro{
+    max-width:84vw;
+    font-size:15px !important;
+    line-height:1.45 !important;
+    margin-top:2.5svh;
+  }
+  .hero .pill{
+    margin-top:3svh !important;
+    margin-bottom:0;
+  }
   .links{gap:10px}
   .meta{flex-direction:column;gap:8px}
-  .contact h2{font-size:15vw}
+  .contact{padding-top:11vh;gap:4vh}
+  .contact h2{font-size:15vw;line-height:.9}
+  .contact .pill{font-size:14px}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 
